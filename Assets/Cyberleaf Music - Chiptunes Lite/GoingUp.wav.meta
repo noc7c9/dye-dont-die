@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: f3a79a20d6c9a42b2bb5918c2f0fe9e5
+labels:
+- Cyberleaf
+- Music
+timeCreated: 1485516362
+licenseType: Store
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
