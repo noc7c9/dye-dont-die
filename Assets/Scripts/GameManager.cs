@@ -19,7 +19,7 @@ namespace Noc7c9.DyeDontDie {
 
         public PlayerController player;
         public LevelLoader levelLoader;
-        public CameraFollow camera;
+        public new CameraFollow camera;
 
         public RectTransform startMenu;
         public RectTransform gameOver;
@@ -59,13 +59,13 @@ namespace Noc7c9.DyeDontDie {
         }
         State state;
 
-        Vector3 initialPlayerPosition;
+        // Vector3 initialPlayerPosition;
         Rigidbody2D playerRb;
 
         void Start() {
             UpdateColors();
 
-            initialPlayerPosition = player.transform.position;
+            // initialPlayerPosition = player.transform.position;
             playerRb = player.GetComponent<Rigidbody2D>();
             playerRb.constraints = RigidbodyConstraints2D.None;
             playerRb.AddTorque(10);
