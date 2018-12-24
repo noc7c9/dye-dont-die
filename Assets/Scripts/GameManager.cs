@@ -19,12 +19,14 @@ namespace Noc7c9.DyeDontDie {
 
         public PlayerController player;
         public LevelLoader levelLoader;
-        public new CameraFollow camera;
+        public CameraFollow camera;
 
         public RectTransform startMenu;
         public RectTransform gameOver;
 
         public Color[] colors;
+
+        public InputManager input;
 
         [SerializeField]
         int activeColorIndex;
@@ -80,12 +82,12 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void Update() {
-            bool spaceDown = Input.GetKeyDown(KeyCode.Space);
+            bool startDown = input.GetStartDown();
 
             switch (state) {
                 case State.START_MENU:
                 case State.GAME_OVER:
-                    if (spaceDown) {
+                    if (startDown) {
                         StartGame();
                     }
                 break;

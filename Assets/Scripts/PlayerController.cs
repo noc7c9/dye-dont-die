@@ -22,6 +22,8 @@ namespace Noc7c9.DyeDontDie {
         public AudioClip jumpSound;
         public AudioClip playerDeathSound;
 
+        public InputManager input;
+
         public event System.Action Died;
         void OnDied() {
             var evt = Died;
@@ -49,7 +51,7 @@ namespace Noc7c9.DyeDontDie {
 
         void Update() {
             // cycle colors
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (input.GetJumpDown()) {
                 GameManager.Instance.CycleColor();
             }
         }
@@ -73,7 +75,7 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void HorizontalMovement(ref Vector2 newVelocity) {
-            float inputX = Input.GetAxisRaw("Horizontal");
+            float inputX = input.GetXAxis();
 
             // kill velocity if touching the ground and there is no input
             // or if changing moving direction
@@ -89,7 +91,7 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void JumpMovement(ref Vector2 newVelocity) {
-            bool jumpInput = Input.GetKey(KeyCode.Space);
+            bool jumpInput = input.GetJump();
 
             if (touchingGround && jumpInput && jumpInputReleased) {
                 jumping = true;
