@@ -34,7 +34,6 @@ public class InputManager : MonoBehaviour {
         foreach (InputButton startButton in uiStartButtons) {
             ui = ui || startButton.GetDown();
         }
-        Debug.Log("GetStartDown ui = " + ui + ", keyboard = " + keyboard);
         return ui || keyboard;
     }
 }
