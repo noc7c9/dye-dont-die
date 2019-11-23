@@ -6,16 +6,6 @@ namespace Noc7c9.DyeDontDie {
 
     public class AudioManager : MonoBehaviour {
 
-        static AudioManager instance_;
-        public static AudioManager Instance {
-            get {
-                if (instance_ == null) {
-                    instance_ = FindObjectOfType<AudioManager>();
-                }
-                return instance_;
-            }
-        }
-
         public AudioSource music;
         public AudioSource source;
 
@@ -26,7 +16,7 @@ namespace Noc7c9.DyeDontDie {
         }
 
         public static void PlaySoundStatic(AudioClip clip) {
-            Instance.PlaySound(clip);
+            ServiceLocator.AudioManager.PlaySound(clip);
         }
 
         public void SetMusicVolume(float volume) {

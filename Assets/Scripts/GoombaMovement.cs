@@ -35,7 +35,7 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void FixedUpdate() {
-            Vector2 newVelocity = rb.velocity;
+            var newVelocity = rb.velocity;
 
             if (OnGround()) {
                 CheckCollision();
@@ -46,18 +46,18 @@ namespace Noc7c9.DyeDontDie {
         }
 
         bool OnGround() {
-            Vector2 position = transform.position;
+            var position = transform.position;
             position.y -= pathCheckOffset;
             return null != Physics2D.OverlapCircle(position,
                     OVERLAP_SPHERE_RADIUS, collisionMask);
         }
 
         void CheckCollision() {
-            Vector2 position = transform.position;
+            var position = transform.position;
 
             // check for walls
             position.x += moveDir * pathCheckOffset;
-            Collider2D hit = Physics2D.OverlapCircle(position,
+            var hit = Physics2D.OverlapCircle(position,
                     OVERLAP_SPHERE_RADIUS, collisionMask);
             if (hit != null) {
                 moveDir = -moveDir;

@@ -11,7 +11,7 @@ namespace Noc7c9.DyeDontDie {
         public SpriteRenderer outline;
         public SpriteRenderer dotted;
 
-        public int colorIndex;
+        public long colorIndex;
 
         public EnemyType enemyType;
 
@@ -25,7 +25,7 @@ namespace Noc7c9.DyeDontDie {
                     case EnemyType.OUTLINE_WHITE:
                         return true;
                     case EnemyType.SOLID_COLOR:
-                        return !GameManager.Instance.MatchesActiveColor(color);
+                        return colorIndex != ServiceLocator.WorldColorManager.GetActiveColorIndex();
                 }
                 return false;
             }
@@ -36,7 +36,7 @@ namespace Noc7c9.DyeDontDie {
                     case EnemyType.SOLID_WHITE:
                         return true;
                     case EnemyType.OUTLINE_WHITE:
-                        return GameManager.Instance.MatchesActiveColor(color);
+                        return colorIndex == ServiceLocator.WorldColorManager.GetActiveColorIndex();
                     case EnemyType.SOLID_COLOR:
                         return false;
                 }
@@ -50,7 +50,7 @@ namespace Noc7c9.DyeDontDie {
         LayerMask noPlayerCollisionsLayerMask;
 
         void Start() {
-            color = GameManager.Instance.GetColorSafe(colorIndex);
+            color = ServiceLocator.WorldColorManager.GetColor(colorIndex);
 
             normalLayerMask = LayerMask.NameToLayer("Enemy");
             noPlayerCollisionsLayerMask = LayerMask.NameToLayer("EnemyNoPlayer");
@@ -68,18 +68,18 @@ namespace Noc7c9.DyeDontDie {
                 case EnemyType.SOLID_COLOR:
                     fill.color = color;
 
-                    GameManager.Instance.ChangedColor -= OnChangedColorHandler;
-                    GameManager.Instance.ChangedColor += OnChangedColorHandler;
+                    ServiceLocator.WorldColorManager.ColorChanged -= OnColorChangedHandler;
+                    ServiceLocator.WorldColorManager.ColorChanged += OnColorChangedHandler;
 
-                    OnChangedColorHandler(GameManager.Instance.GetActiveColor());
+                    OnColorChangedHandler(ServiceLocator.WorldColorManager.GetActiveColorIndex());
 
                     break;
             }
         }
 
-        void OnChangedColorHandler(Color color) {
+        void OnColorChangedHandler(long colorIndex) {
             if (enemyType == EnemyType.SOLID_COLOR) {
-                if (this.color == color) {
+                if (this.colorIndex == colorIndex) {
                     gameObject.layer = noPlayerCollisionsLayerMask;
                     dotted.enabled = true;
                 } else {
@@ -114,9 +114,8 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void OnDestroy() {
-            GameManager gm = GameManager.Instance;
-            if (gm != null) {
-                GameManager.Instance.ChangedColor -= OnChangedColorHandler;
+            if (ServiceLocator.WorldColorManager != null) {
+                ServiceLocator.WorldColorManager.ColorChanged -= OnColorChangedHandler;
             }
         }
 

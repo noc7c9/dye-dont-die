@@ -65,7 +65,7 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void Update() {
-            float playerY = player.position.y;
+            var playerY = player.position.y;
             if (holderLists.Count > 0) {
                 Transform topMostHolder = holderLists[0];
                 if (topMostHolder.position.y > (playerY + offloadMinDistance)) {
@@ -87,7 +87,7 @@ namespace Noc7c9.DyeDontDie {
             }
             holderLists = new List<Transform>();
 
-            Vector3 newPosition = transform.position;
+            var newPosition = transform.position;
             newPosition.y = initialYOffset + player.position.y;
             transform.position = newPosition;
 
@@ -115,14 +115,14 @@ namespace Noc7c9.DyeDontDie {
         }
 
         void CreateChunk(int chunkIndex, bool vFlip, bool hFlip) {
-            int[,] chunk = mapChunks[chunkIndex];
+            var chunk = mapChunks[chunkIndex];
 
-            Transform holder = new GameObject(HOLDER + lastChunkId).transform;
+            var holder = new GameObject(HOLDER + lastChunkId).transform;
             holder.parent = transform;
             holderLists.Add(holder);
 
-            int height = chunk.GetLength(0);
-            int width = chunk.GetLength(1);
+            var height = chunk.GetLength(0);
+            var width = chunk.GetLength(1);
 
             for (int y = 0; y < height; y++) {
                 Vector3 totalPosition = Vector3.zero;
@@ -154,37 +154,38 @@ namespace Noc7c9.DyeDontDie {
             if (scale <= 0) {
                 return;
             }
-            Transform tile = Instantiate(tilePrefab);
+            var tile = Instantiate(tilePrefab);
             tile.localPosition = position;
             tile.localScale = new Vector3(scale, 1, 1);
             tile.parent = holder;
         }
 
         void SpawnEnemy(Transform holder, Vector3 position) {
-            if (Random.value > enemySpawnChance) {
-                return;
-            }
+            return;
+            // if (Random.value > enemySpawnChance) {
+            //     return;
+            // }
 
-            Transform enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            // var enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-            Transform enemyT = Instantiate(enemyPrefab);
-            enemyT.parent = holder;
-            enemyT.localPosition = position;
+            // var enemyT = Instantiate(enemyPrefab);
+            // enemyT.parent = holder;
+            // enemyT.localPosition = position;
 
-            // set enemy properties
-            EnemyController enemy = enemyT.GetComponent<EnemyController>();
+            // // set enemy properties
+            // var enemy = enemyT.GetComponent<EnemyController>();
 
-            enemy.colorIndex = Random.Range(
-                    0, GameManager.Instance.GetNumberOfColors());
+            // enemy.colorIndex = Random.Range(
+            //         0, GameManager.Instance.GetNumberOfColors());
 
-            // hardest to easiest
-            if (Random.value < enemySolidColorChance) {
-                enemy.enemyType = EnemyType.SOLID_COLOR;
-            } else if (Random.value < enemyOutlineWhiteChance) {
-                enemy.enemyType = EnemyType.OUTLINE_WHITE;
-            } else {
-                enemy.enemyType = EnemyType.SOLID_WHITE;
-            }
+            // // hardest to easiest
+            // if (Random.value < enemySolidColorChance) {
+            //     enemy.enemyType = EnemyType.SOLID_COLOR;
+            // } else if (Random.value < enemyOutlineWhiteChance) {
+            //     enemy.enemyType = EnemyType.OUTLINE_WHITE;
+            // } else {
+            //     enemy.enemyType = EnemyType.SOLID_WHITE;
+            // }
         }
 
     }

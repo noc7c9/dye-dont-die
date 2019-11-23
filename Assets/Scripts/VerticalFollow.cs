@@ -9,7 +9,7 @@ namespace Noc7c9.DyeDontDie {
         public Transform target;
 
         void Update() {
-            Vector3 newPosition = transform.position;
+            var newPosition = transform.position;
             newPosition.y = target.position.y;
             transform.position = newPosition;
         }

@@ -31,11 +31,11 @@ public class InputButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         isDown = false;
     }
 
-    public bool Get() {
+    public bool IsDown() {
         return isDown;
     }
 
-    public bool GetDown() {
+    public bool IsDownThisFrame() {
         return isDownFrame;
     }
 

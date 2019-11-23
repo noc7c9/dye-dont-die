@@ -16,7 +16,7 @@ namespace Noc7c9.DyeDontDie {
 
         void Update() {
             Vector3 newPosition = transform.position;
-            float targetY = target.position.y + yOffset;
+            var targetY = target.position.y + yOffset;
             if (targetY < newPosition.y) {
                 newPosition.y = targetY;
             }
