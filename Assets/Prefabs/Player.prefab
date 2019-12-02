@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 50306001197461532}
   - component: {fileID: 6489903490752620720}
   - component: {fileID: 8846144772105371356}
-  - component: {fileID: 3718194223004716072}
   - component: {fileID: 114671278061749072}
   m_Layer: 8
   m_Name: Player
@@ -290,7 +289,7 @@ MonoBehaviour:
     m_Bits: 512
   triggerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
@@ -348,21 +347,8 @@ MonoBehaviour:
   groundDamping: 20
   inAirDamping: 5
   jumpHeight: 3
---- !u!114 &3718194223004716072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825168726972256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bec6cd0376d08e64d9b784d592e3391b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftButton: {fileID: 0}
-  rightButton: {fileID: 0}
-  jumpButton: {fileID: 0}
+  jumpSound: {fileID: 0}
+  playerDeathSound: {fileID: 0}
 --- !u!114 &114671278061749072
 MonoBehaviour:
   m_ObjectHideFlags: 0

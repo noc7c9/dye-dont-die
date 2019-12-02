@@ -18,15 +18,7 @@ namespace Noc7c9.DyeDontDie {
         }
         State state;
 
-        // Vector3 initialPlayerPosition;
-        Rigidbody2D playerRb;
-
         void Start() {
-            // initialPlayerPosition = player.transform.position;
-            playerRb = player.GetComponent<Rigidbody2D>();
-            playerRb.constraints = RigidbodyConstraints2D.None;
-            playerRb.AddTorque(10);
-
             state = State.START_MENU;
 
             startMenu.gameObject.SetActive(true);
