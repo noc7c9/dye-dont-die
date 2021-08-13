@@ -18,6 +18,10 @@ config/name="Dye Don't Die"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://src/game_manager.gd"
+
 [display]
 
 window/size/width=640
