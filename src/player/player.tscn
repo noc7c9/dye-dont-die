@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://src/player/player.png" type="Texture" id=1]
 [ext_resource path="res://src/player/player.gd" type="Script" id=2]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
@@ -11,22 +11,22 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -7.15256e-07, -4.76837e-07 )
-scale = Vector2( 0.15625, 0.15625 )
-frames = SubResource( 2 )
+position = Vector2( -9.53674e-07, -9.53674e-07 )
+scale = Vector2( 0.3125, 0.3125 )
+frames = SubResource( 1 )
 animation = "idle"
 
 [node name="stand_shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="slide_shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ray_ground" type="RayCast2D" parent="."]
 position = Vector2( -10, 11 )
@@ -34,11 +34,11 @@ enabled = true
 cast_to = Vector2( 20, 0 )
 
 [node name="ray_left" type="RayCast2D" parent="."]
-position = Vector2( -17, -10 )
+position = Vector2( -13, -10 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="ray_right" type="RayCast2D" parent="."]
-position = Vector2( 17, -10 )
+position = Vector2( 13, -10 )
 enabled = true
 cast_to = Vector2( 0, 20 )

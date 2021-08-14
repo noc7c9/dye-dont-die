@@ -22,6 +22,7 @@ position = Vector2( 260, 234 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+zoom = Vector2( 2, 2 )
 smoothing_enabled = true
 
 [node name="floor" parent="." instance=ExtResource( 1 )]
