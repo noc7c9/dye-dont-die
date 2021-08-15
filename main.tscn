@@ -19,7 +19,7 @@ __meta__ = {
 }
 
 [node name="goomba" parent="." instance=ExtResource( 4 )]
-position = Vector2( 417, 104 )
+position = Vector2( 441, 220 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 260, 234 )
