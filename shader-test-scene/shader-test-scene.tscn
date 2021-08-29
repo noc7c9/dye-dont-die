@@ -1,0 +1,242 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/color-bubble/color-bubble.tscn" type="PackedScene" id=1]
+[ext_resource path="res://shader-test-scene/smooth-gradient.shader" type="Shader" id=2]
+[ext_resource path="res://shader-test-scene/hard-gradient.shader" type="Shader" id=3]
+[ext_resource path="res://shader-test-scene/color-bubble-test.shader" type="Shader" id=4]
+[ext_resource path="res://src/platform/platform.tscn" type="PackedScene" id=18]
+[ext_resource path="res://shader-test-scene/shader-test-scene.gd" type="Script" id=20]
+[ext_resource path="res://shader-test-scene/color-bubble-test-cielch.shader" type="Shader" id=21]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+
+[sub_resource type="ProxyTexture" id=2]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/shades = 15
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 4 )
+shader_param/uniform_h = 240.0
+shader_param/uniform_s = 50.0
+shader_param/uniform_l = 50.0
+shader_param/uniform_a = 0.5
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 4 )
+shader_param/uniform_h = 0.0
+shader_param/uniform_s = 50.0
+shader_param/uniform_l = 50.0
+shader_param/uniform_a = 0.5
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 4 )
+shader_param/uniform_h = 120.0
+shader_param/uniform_s = 50.0
+shader_param/uniform_l = 50.0
+shader_param/uniform_a = 0.5
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 21 )
+shader_param/uniform_l = 46.0
+shader_param/uniform_c = 58.405
+shader_param/uniform_h = 270.0
+shader_param/uniform_a = 0.5
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 21 )
+shader_param/uniform_l = 46.0
+shader_param/uniform_c = 58.405
+shader_param/uniform_h = 30.0
+shader_param/uniform_a = 0.5
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 21 )
+shader_param/uniform_l = 46.0
+shader_param/uniform_c = 58.405
+shader_param/uniform_h = 150.0
+shader_param/uniform_a = 0.5
+
+[node name="shader-test-scene" type="Node"]
+script = ExtResource( 20 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_left = -9711.0
+margin_top = -9822.0
+margin_right = 10289.0
+margin_bottom = 10178.0
+color = Color( 0.333333, 0.333333, 0.333333, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="smooth-gradient" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 152, 81 )
+scale = Vector2( 100, 100 )
+texture = SubResource( 2 )
+
+[node name="hard-gradient" type="Sprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 257, 233 )
+scale = Vector2( 100, 100 )
+texture = SubResource( 2 )
+
+[node name="basic level" type="Node2D" parent="."]
+
+[node name="platform" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 516, 237 )
+
+[node name="platform2" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 532, 416 )
+
+[node name="platform3" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 49, 384 )
+
+[node name="platform4" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 333, 365 )
+scale = Vector2( 0.628742, 1.53884 )
+
+[node name="platform5" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 427, 403 )
+
+[node name="platform6" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 152, 393 )
+
+[node name="platform7" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 411, 297 )
+scale = Vector2( 1, 0.28 )
+
+[node name="platform8" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 246, 425 )
+scale = Vector2( 6.28, 1 )
+
+[node name="platform9" parent="basic level" instance=ExtResource( 18 )]
+position = Vector2( 532, 314 )
+scale = Vector2( 1, 0.243498 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 180 )
+current = true
+
+[node name="ColorBubble1" parent="Camera2D" instance=ExtResource( 1 )]
+material = SubResource( 4 )
+position = Vector2( -180, -80 )
+scale = Vector2( 200, 200 )
+
+[node name="ColorBubble2" parent="Camera2D" instance=ExtResource( 1 )]
+material = SubResource( 5 )
+position = Vector2( 0, -80 )
+scale = Vector2( 200, 200 )
+z_index = 101
+
+[node name="ColorBubble3" parent="Camera2D" instance=ExtResource( 1 )]
+material = SubResource( 6 )
+position = Vector2( 180, -80 )
+scale = Vector2( 200, 200 )
+
+[node name="ColorBubble4" parent="Camera2D" instance=ExtResource( 1 )]
+material = SubResource( 7 )
+position = Vector2( -180, 79 )
+scale = Vector2( 200, 200 )
+
+[node name="ColorBubble5" parent="Camera2D" instance=ExtResource( 1 )]
+material = SubResource( 8 )
+position = Vector2( 0, 79 )
+scale = Vector2( 200, 200 )
+z_index = 101
+
+[node name="ColorBubble6" parent="Camera2D" instance=ExtResource( 1 )]
+material = SubResource( 9 )
+position = Vector2( 180, 79 )
+scale = Vector2( 200, 200 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LSlider" type="HSlider" parent="CanvasLayer"]
+margin_left = 22.0
+margin_right = 148.0
+margin_bottom = 25.0
+step = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/LSlider"]
+margin_left = -16.0
+margin_top = 6.0
+margin_right = -1.0
+margin_bottom = 20.0
+text = "L*"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="CanvasLayer/LSlider"]
+margin_left = 126.0
+margin_top = 6.0
+margin_right = 166.0
+margin_bottom = 20.0
+
+[node name="CSlider" type="HSlider" parent="CanvasLayer"]
+margin_left = 22.0
+margin_top = 22.0
+margin_right = 148.0
+margin_bottom = 47.0
+max_value = 125.0
+step = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/CSlider"]
+margin_left = -16.0
+margin_top = 6.0
+margin_bottom = 20.0
+text = "C*"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="CanvasLayer/CSlider"]
+margin_left = 126.0
+margin_top = 6.0
+margin_right = 166.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+margin_left = 22.0
+margin_top = 44.0
+margin_right = 148.0
+margin_bottom = 69.0
+max_value = 360.0
+step = 0.1
+editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/HSlider"]
+margin_left = -16.0
+margin_top = 6.0
+margin_right = -6.0
+margin_bottom = 20.0
+text = "h"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="CanvasLayer/HSlider"]
+margin_left = 126.0
+margin_top = 6.0
+margin_right = 166.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
