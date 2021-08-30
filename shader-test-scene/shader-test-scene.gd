@@ -26,9 +26,11 @@ var h = 0;
 func _ready():
     l = bubble5.material.get_shader_param("uniform_l");
     c = bubble5.material.get_shader_param("uniform_c");
+    h = bubble5.material.get_shader_param("uniform_h");
 
-    lSlider.value = l;
-    cSlider.value = c;
+    lSlider.value = 0 if l == null else l;
+    cSlider.value = 0 if c == null else c;
+    hSlider.value = 0 if h == null else h;
 
 func _process(delta):
     h = mod(h + delta * 15, 360)
@@ -46,16 +48,21 @@ func _process(delta):
 
     l = lSlider.value;
     c = cSlider.value;
+    h = hSlider.value;
 
     var h1 = mod(h - 120, 360);
     var h2 = h;
     var h3 = mod(h + 120, 360);
 
-    var h4 = mod(h1 + 30, 360);
+    # var h4 = mod(h1 + 30, 360);
+    # var h5 = mod(h2 + 30, 360);
+    # var h6 = mod(h3 + 30, 360);
+
+    var h4 = mod(h2 + 30, 360);
     var h5 = mod(h2 + 30, 360);
     var h6 = mod(h3 + 30, 360);
 
-    print('h = ', h1, ',', h2, ',', h3);
+    # print('h = ', h1, ',', h2, ',', h3);
 
     bubble1.material.set_shader_param("uniform_h", h1);
     bubble2.material.set_shader_param("uniform_h", h2);

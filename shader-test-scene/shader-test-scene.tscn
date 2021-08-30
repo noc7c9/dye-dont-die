@@ -40,20 +40,23 @@ shader_param/uniform_a = 0.5
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 21 )
+shader_param/use_screen_blending = true
 shader_param/uniform_l = 46.0
 shader_param/uniform_c = 58.405
-shader_param/uniform_h = 270.0
+shader_param/uniform_h = 0.0
 shader_param/uniform_a = 0.5
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 21 )
+shader_param/use_screen_blending = false
 shader_param/uniform_l = 46.0
 shader_param/uniform_c = 58.405
-shader_param/uniform_h = 30.0
+shader_param/uniform_h = 0.0
 shader_param/uniform_a = 0.5
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 21 )
+shader_param/use_screen_blending = false
 shader_param/uniform_l = 46.0
 shader_param/uniform_c = 58.405
 shader_param/uniform_h = 150.0
@@ -75,47 +78,71 @@ __meta__ = {
 
 [node name="smooth-gradient" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 152, 81 )
-scale = Vector2( 100, 100 )
+position = Vector2( 123, 175 )
+scale = Vector2( 148, 100 )
 texture = SubResource( 2 )
 
 [node name="hard-gradient" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( 257, 233 )
-scale = Vector2( 100, 100 )
+position = Vector2( 123, 238 )
+scale = Vector2( 148, 100 )
+texture = SubResource( 2 )
+
+[node name="smooth-gradient2" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 311, 175 )
+scale = Vector2( 148, 100 )
+texture = SubResource( 2 )
+
+[node name="hard-gradient2" type="Sprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 311, 238 )
+scale = Vector2( 148, 100 )
+texture = SubResource( 2 )
+
+[node name="smooth-gradient3" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 483, 175 )
+scale = Vector2( 148, 100 )
+texture = SubResource( 2 )
+
+[node name="hard-gradient3" type="Sprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 483, 238 )
+scale = Vector2( 148, 100 )
 texture = SubResource( 2 )
 
 [node name="basic level" type="Node2D" parent="."]
 
 [node name="platform" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 516, 237 )
+position = Vector2( 525, 169 )
 
 [node name="platform2" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 532, 416 )
+position = Vector2( 541, 348 )
 
 [node name="platform3" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 49, 384 )
+position = Vector2( 58, 316 )
 
 [node name="platform4" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 333, 365 )
+position = Vector2( 342, 297 )
 scale = Vector2( 0.628742, 1.53884 )
 
 [node name="platform5" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 427, 403 )
+position = Vector2( 436, 335 )
 
 [node name="platform6" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 152, 393 )
+position = Vector2( 161, 325 )
 
 [node name="platform7" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 411, 297 )
+position = Vector2( 420, 229 )
 scale = Vector2( 1, 0.28 )
 
 [node name="platform8" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 246, 425 )
+position = Vector2( 255, 357 )
 scale = Vector2( 6.28, 1 )
 
 [node name="platform9" parent="basic level" instance=ExtResource( 18 )]
-position = Vector2( 532, 314 )
+position = Vector2( 541, 246 )
 scale = Vector2( 1, 0.243498 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -123,17 +150,20 @@ position = Vector2( 320, 180 )
 current = true
 
 [node name="ColorBubble1" parent="Camera2D" instance=ExtResource( 1 )]
+visible = false
 material = SubResource( 4 )
 position = Vector2( -180, -80 )
 scale = Vector2( 200, 200 )
 
 [node name="ColorBubble2" parent="Camera2D" instance=ExtResource( 1 )]
+visible = false
 material = SubResource( 5 )
 position = Vector2( 0, -80 )
 scale = Vector2( 200, 200 )
 z_index = 101
 
 [node name="ColorBubble3" parent="Camera2D" instance=ExtResource( 1 )]
+visible = false
 material = SubResource( 6 )
 position = Vector2( 180, -80 )
 scale = Vector2( 200, 200 )
@@ -150,6 +180,7 @@ scale = Vector2( 200, 200 )
 z_index = 101
 
 [node name="ColorBubble6" parent="Camera2D" instance=ExtResource( 1 )]
+visible = false
 material = SubResource( 9 )
 position = Vector2( 180, 79 )
 scale = Vector2( 200, 200 )
@@ -217,7 +248,6 @@ margin_right = 148.0
 margin_bottom = 69.0
 max_value = 360.0
 step = 0.1
-editable = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
