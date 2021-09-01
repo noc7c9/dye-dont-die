@@ -33,4 +33,5 @@ func _physics_process(delta):
     motion = move_and_slide(motion, Vector2.UP)
 
 func _on_body_entered(body):
-    print('body entered ', body.is_in_group('player'))
+    # print('body entered ', body.is_in_group('player'))
+    pass
