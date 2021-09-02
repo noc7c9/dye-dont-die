@@ -11,7 +11,7 @@ var bubbles: Array = []
 var hue: float = 0;
 func get_hue_and_shift() -> float:
     var value = hue;
-    hue += 180 + 3;
+    hue += 180 + 1;
     return value
 
 func _ready():
