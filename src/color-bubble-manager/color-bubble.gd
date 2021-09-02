@@ -5,6 +5,7 @@ export var end_velocity: float = 500
 export var deceleration: float = 250
 
 var velocity: float = start_velocity
+var hue: float = 0;
 
 func _ready():
     scale.x = 0
@@ -16,3 +17,7 @@ func _process(delta):
 
     velocity = clamp(velocity - deceleration * delta, end_velocity,
             start_velocity)
+
+func set_hue(hue: float):
+    self.hue = hue;
+    self.material.set_shader_param("hue", hue)
