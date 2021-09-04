@@ -4,7 +4,7 @@ extends Node
 
 var color_bubble = preload("res://src/ColorBubbleManager/ColorBubble.tscn");
 
-onready var player = $"../player";
+onready var player = GameManager.get_player()
 onready var background = $Background;
 
 const BUBBLE_SCALE_CUTOFF = 2000
