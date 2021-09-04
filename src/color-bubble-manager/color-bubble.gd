@@ -1,8 +1,8 @@
 extends Sprite
 
-export var start_velocity: float = 1500
-export var end_velocity: float = 500
-export var deceleration: float = 250
+var start_velocity: float = 1500
+var end_velocity: float = 500
+var deceleration: float = 250
 
 var velocity: float = start_velocity
 var hue: float = 0;

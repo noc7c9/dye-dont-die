@@ -1,21 +1,21 @@
 extends KinematicBody2D
 
-export var gravity: float = 1500
-export var acceleration: float = 2000
-export var deceleration: float = 2000
-export var stand_friction: float = 2500
-export var current_friction: float = 2000
-export var max_horizontal_speed: float = 350
-export var max_fall_speed: float = 1000
-export var jump_height: float = -450
-export var double_jump_height: float = -450
-export var coyote_time_duration: float = 0.2
-export var slide_friction: float = 600
-export var squash_speed: float = 0.1
-export var max_fall_speed_wall_slide: float = 200
-export var wall_slide_gravity: float = 200
-export var wall_jump_height = -500
-export var wall_jump_push = 400
+var gravity: float = 1500
+var acceleration: float = 2000
+var deceleration: float = 2000
+var stand_friction: float = 2500
+var current_friction: float = 2000
+var max_horizontal_speed: float = 350
+var max_fall_speed: float = 1000
+var jump_height: float = -450
+var double_jump_height: float = -450
+var coyote_time_duration: float = 0.2
+var slide_friction: float = 600
+var squash_speed: float = 0.1
+var max_fall_speed_wall_slide: float = 200
+var wall_slide_gravity: float = 200
+var wall_jump_height = -500
+var wall_jump_push = 400
 
 var v_speed: float = 0
 var h_speed: float = 0
