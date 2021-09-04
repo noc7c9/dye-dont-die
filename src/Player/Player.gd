@@ -1,3 +1,5 @@
+class_name Player
+
 extends KinematicBody2D
 
 var gravity: float = 1500

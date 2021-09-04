@@ -1,3 +1,5 @@
+class_name Background
+
 extends ColorRect
 
 onready var GameManager = get_node('/root/GameManager')

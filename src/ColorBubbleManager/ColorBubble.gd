@@ -1,3 +1,5 @@
+class_name ColorBubble
+
 extends Sprite
 
 var start_velocity: float = 1500

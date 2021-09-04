@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/color-bubble-manager/color-bubble.gd" type="Script" id=1]
-[ext_resource path="res://src/color-bubble-manager/color-bubble.shader" type="Shader" id=2]
+[ext_resource path="res://src/ColorBubbleManager/ColorBubble.gd" type="Script" id=1]
+[ext_resource path="res://src/ColorBubbleManager/ColorBubble.shader" type="Shader" id=2]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -11,7 +11,7 @@ shader_param/hue = null
 
 [sub_resource type="ProxyTexture" id=2]
 
-[node name="color-bubble" type="Sprite"]
+[node name="ColorBubble" type="Sprite"]
 material = SubResource( 1 )
 scale = Vector2( 100, 100 )
 z_index = 100

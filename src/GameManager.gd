@@ -1,3 +1,5 @@
+# class_name GameManager
+
 extends Node
 
 var total_colors: int = 2

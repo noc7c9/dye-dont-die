@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/goomba.png-716a03516ec2684839e834a99a8d3681.stex"
+path="res://.import/Platform.png-3a3e5a1ba349b456ce2922b2f14480bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/goomba/goomba.png"
-dest_files=[ "res://.import/goomba.png-716a03516ec2684839e834a99a8d3681.stex" ]
+source_file="res://src/Platform/Platform.png"
+dest_files=[ "res://.import/Platform.png-3a3e5a1ba349b456ce2922b2f14480bb.stex" ]
 
 [params]
 

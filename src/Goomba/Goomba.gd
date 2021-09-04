@@ -1,3 +1,5 @@
+class_name Goomba
+
 extends KinematicBody2D
 
 export var gravity: float = 1500

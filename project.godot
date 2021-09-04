@@ -8,19 +8,49 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "ColorRect",
+"class": "Background",
+"language": "GDScript",
+"path": "res://src/Background.gd"
+}, {
+"base": "Sprite",
+"class": "ColorBubble",
+"language": "GDScript",
+"path": "res://src/ColorBubbleManager/ColorBubble.gd"
+}, {
+"base": "Node",
+"class": "ColorBubbleManager",
+"language": "GDScript",
+"path": "res://src/ColorBubbleManager/ColorBubbleManager.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Goomba",
+"language": "GDScript",
+"path": "res://src/Goomba/Goomba.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Player/Player.gd"
+} ]
 _global_script_class_icons={
+"Background": "",
+"ColorBubble": "",
+"ColorBubbleManager": "",
+"Goomba": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Dye Don't Die"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GameManager="*res://src/game_manager.gd"
+GameManager="*res://src/GameManager.gd"
 
 [display]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/color-bubble-manager/color-bubble-manager.gd" type="Script" id=1]
+[ext_resource path="res://src/ColorBubbleManager/ColorBubbleManager.gd" type="Script" id=1]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -162,10 +162,10 @@ shader_param/hue = null
 
 [sub_resource type="ProxyTexture" id=3]
 
-[node name="color-bubble-manager" type="Node"]
+[node name="ColorBubbleManager" type="Node"]
 script = ExtResource( 1 )
 
-[node name="background" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 material = SubResource( 2 )
 scale = Vector2( 1e+06, 1e+06 )
 texture = SubResource( 3 )
