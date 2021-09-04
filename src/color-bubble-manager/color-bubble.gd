@@ -18,6 +18,6 @@ func _process(delta):
     velocity = clamp(velocity - deceleration * delta, end_velocity,
             start_velocity)
 
-func set_hue(hue: float):
-    self.hue = hue;
+func set_hue(new_hue: float):
+    self.hue = new_hue;
     self.material.set_shader_param("hue", hue)
