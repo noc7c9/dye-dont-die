@@ -7,8 +7,8 @@ var color_bubble = preload("res://src/ColorBubbleManager/ColorBubble.tscn");
 onready var player = GameManager.get_player()
 onready var background = $Background;
 
-const BUBBLE_SCALE_CUTOFF = 2000
-const BUBBLE_PLAYER_EDGE_MIN_DIST = 800
+const BUBBLE_SCALE_CUTOFF = 3000
+const BUBBLE_PLAYER_EDGE_MIN_DIST = 1200
 
 var bubbles: Array = []
 

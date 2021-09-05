@@ -2,13 +2,9 @@ class_name ColorBubble
 
 extends Sprite
 
-var start_velocity: float = 1500
-var end_velocity: float = 500
-var deceleration: float = 250
-
+const VELOCITY = 1250.0
 const SCALE_PLAYER_BUFFER = 50.0
 
-var velocity: float = start_velocity
 var hue: float = 0;
 
 onready var player = GameManager.get_player()
@@ -18,10 +14,7 @@ func _ready():
     scale.y = 0
 
 func _process(delta):
-    scale.x += velocity * delta
-
-    velocity = clamp(velocity - deceleration * delta, end_velocity,
-            start_velocity)
+    scale.x += VELOCITY * delta
 
     # keep the player inside the bubble
     var dist = get_player_dist_from_center()
