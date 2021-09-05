@@ -8,6 +8,8 @@ onready var player = GameManager.get_player()
 onready var background = $Background;
 
 const BUBBLE_SCALE_CUTOFF = 2000
+const BUBBLE_PLAYER_EDGE_MIN_DIST = 800
+
 var bubbles: Array = []
 
 var hue_shift: float = 0
@@ -21,6 +23,18 @@ func _ready():
     background.material.set_shader_param("hue", get_hue_and_shift())
     assert(GameManager.connect('color_change', self, 'on_color_change') == OK)
 
+func _process(_delta: float):
+    if len(bubbles) == 0: return
+
+    # delete the oldest bubble if it has scaled past the scale cutoff
+    var bubble = bubbles[0]
+    var dist_from_edge = bubble.get_player_dist_from_edge()
+    if (bubble.scale.x > BUBBLE_SCALE_CUTOFF
+            && dist_from_edge > BUBBLE_PLAYER_EDGE_MIN_DIST):
+        bubble.queue_free()
+        bubbles.remove(0)
+        background.material.set_shader_param("hue", bubble.hue)
+
 func on_color_change():
     var new_bubble = color_bubble.instance()
     new_bubble.set_hue(get_hue_and_shift())
@@ -28,23 +42,3 @@ func on_color_change():
 
     self.add_child(new_bubble)
     bubbles.append(new_bubble)
-
-    # delete all bubbles that have scaled past the scale cutoff
-    # forward iterate so that bubbles that were created later set the background
-    # hue last
-    # (ie. old bubble hues don't override newer hues)
-    var i = 0
-    while i < len(bubbles):
-        var bubble = bubbles[i]
-        if bubble.scale.x > BUBBLE_SCALE_CUTOFF:
-            bubble.queue_free()
-            bubbles[i] = null # mark for deletion
-            background.material.set_shader_param("hue", bubble.hue)
-        i += 1
-
-    # reverse iterate and delete all bubbles that are marked for deletion
-    i = len(bubbles) - 1
-    while i >= 0:
-        if bubbles[i] == null:
-            bubbles.remove(i)
-        i -= 1
