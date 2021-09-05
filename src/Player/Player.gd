@@ -100,7 +100,7 @@ func check_ground_wall_logic(delta: float):
 
 
 func handle_input(delta: float):
-    check_sliding_logic()
+    # check_sliding_logic()
     handle_movement(delta)
     handle_jumping(delta)
 
