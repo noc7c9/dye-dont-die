@@ -24,23 +24,20 @@ scale = Vector2( 0.3125, 0.3125 )
 frames = SubResource( 1 )
 animation = "idle"
 
-[node name="stand_shape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="slide_shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
-[node name="ray_ground" type="RayCast2D" parent="."]
+[node name="RayGround" type="RayCast2D" parent="."]
 position = Vector2( -10, 11 )
 enabled = true
 cast_to = Vector2( 20, 0 )
 
-[node name="ray_left" type="RayCast2D" parent="."]
+[node name="RayLeft" type="RayCast2D" parent="."]
 position = Vector2( -14, -10 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 
-[node name="ray_right" type="RayCast2D" parent="."]
+[node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2( 13, -10 )
 enabled = true
 cast_to = Vector2( 0, 20 )
