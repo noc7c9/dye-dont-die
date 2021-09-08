@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "ColorRect",
-"class": "Background",
-"language": "GDScript",
-"path": "res://src/Background.gd"
-}, {
 "base": "Sprite",
 "class": "ColorBubble",
 "language": "GDScript",
@@ -35,7 +30,6 @@ _global_script_classes=[ {
 "path": "res://src/Player/Player.gd"
 } ]
 _global_script_class_icons={
-"Background": "",
 "ColorBubble": "",
 "ColorBubbleManager": "",
 "Goomba": "",
@@ -109,4 +103,5 @@ jump={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.337255, 0.337255, 0.337255, 1 )
 environment/default_environment="res://default_env.tres"
