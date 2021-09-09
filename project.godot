@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Player/Player.gd"
+}, {
+"base": "RigidBody2D",
+"class": "PlayerDead",
+"language": "GDScript",
+"path": "res://src/Player/PlayerDead.gd"
 } ]
 _global_script_class_icons={
 "ColorBubble": "",
 "ColorBubbleManager": "",
 "Goomba": "",
-"Player": ""
+"Player": "",
+"PlayerDead": ""
 }
 
 [application]

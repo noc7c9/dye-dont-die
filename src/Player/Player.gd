@@ -20,6 +20,8 @@ const WALL_JUMP_PUSH: float = 400.0
 var v_speed: float = 0
 var h_speed: float = 0
 
+var is_dead: bool = false
+
 var touching_ground: bool = false
 var touching_wall: bool = false
 var is_jumping: bool = false
@@ -40,6 +42,8 @@ onready var shape: CollisionShape2D = $CollisionShape2D
 onready var base_scale: Vector2 = anim.scale
 
 func _physics_process(delta):
+    if is_dead: return
+
     # check if we're grounded/touching wall
     check_ground_wall_logic(delta)
 
@@ -232,3 +236,20 @@ func do_physics(delta: float):
     # lerp out squash/squeeze scale
     anim.scale.x = lerp(anim.scale.x, base_scale.x, SQUASH_SPEED)
     anim.scale.y = lerp(anim.scale.y, base_scale.y, SQUASH_SPEED)
+
+func die():
+    if is_dead: return
+    visible = false
+    is_dead = true
+    emit_death()
+
+func revive(global_position: Vector2):
+    if not is_dead: return
+    visible = true
+    is_dead = false
+    motion = Vector2.ZERO
+    self.global_position = global_position
+
+signal death()
+func emit_death():
+    emit_signal('death')

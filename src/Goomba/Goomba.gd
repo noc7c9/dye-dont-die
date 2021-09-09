@@ -36,6 +36,7 @@ func _physics_process(delta):
 
 func _on_body_side_entered(body):
     if not body.is_in_group('player'): return
+    body.die()
     print('body side entered')
 
 func _on_body_top_entered(body):
