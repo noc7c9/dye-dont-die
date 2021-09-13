@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "PlayerDead",
 "language": "GDScript",
 "path": "res://src/Player/PlayerDead.gd"
+}, {
+"base": "Area2D",
+"class": "Spikes",
+"language": "GDScript",
+"path": "res://src/Spikes/Spikes.gd"
 } ]
 _global_script_class_icons={
 "ColorBubble": "",
 "ColorBubbleManager": "",
 "Goomba": "",
 "Player": "",
-"PlayerDead": ""
+"PlayerDead": "",
+"Spikes": ""
 }
 
 [application]
